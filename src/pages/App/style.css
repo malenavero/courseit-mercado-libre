@@ -1,0 +1,40 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+}
+
+.container {
+	background-color: rgba(254,230,0,255);
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	padding: 10px;
+}
+
+.img{
+	width: 20%;
+}
+
+.list {
+	margin: 10px;
+}
+
+.item {
+	display: flex;	
+	justify-content: space-between;
+	background-color: rgba(255, 255, 255, 0.705);
+	margin: 5px;
+	padding: 4px 10px;
+	border-radius: 5px;
+}
+
+.item .itemName {
+	margin-left: 15px;
+}
+
+
