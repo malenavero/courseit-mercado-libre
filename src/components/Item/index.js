@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 function Item (props){
     const {name, code} = props;    
     const [flagImg, setFlagImg]   = useState(false);
+    const [loading, setLoading] = useState(true)
     const linkTo = `/carousel/${code}` 
     const alt = `bandera de ${name}`  
     //const [data, setData] = useState(false);
@@ -20,6 +21,7 @@ function Item (props){
     useEffect(() => {
         //fetchData()
         getImg()
+        
       }, []); 
           
     async function getImg(){
@@ -29,19 +31,24 @@ function Item (props){
                 setFlagImg(`https://flagcdn.com/w20/${i}.png`)
             }
         }
+        setLoading(false)
     }
 
-    return (           
-            <Link to={linkTo}>
-                <li className="item" >
-                <img 
-                    className="itemImg" 
-                    src={flagImg} 
-                    alt={alt}/>
-                {name}
-                </li>
-            </Link>          
-        )    
+    return (      
+        <>
+            {loading === false && 
+                <Link to={linkTo}>
+                    <li className="item" >
+                        <img 
+                            className="itemImg" 
+                            src={flagImg} 
+                            alt={alt}/>
+                        {name}
+                    </li>
+                </Link>         
+            } 
+        </>          
+    )    
 }
 export default Item;
 
